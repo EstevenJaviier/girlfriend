@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contenedor {
+            border: 5px dotted rgb(255, 0, 0);
+            padding: 1em .4em;
+            margin: auto;
+            max-width: 1000px;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .contenedor h2 {
+            display: block;
+            text-align: center;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        input[type=button] {
+            position: absolute;
+            padding: .4em 1.5em;
+            letter-spacing: 3px;
+            background: linear-gradient(to right, #3d5afe, #ab47bc);
+            border: none;
+            color: white;
+            box-shadow: -1px 2px 4px 0px rgba(0, 0, 0, 0.2);
+            font-size: 17px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            cursor: pointer;
+        }
+
+        .si {
+            margin-top: 7em;
+            margin-left: 7em;
+        }
+
+        .no {
+            margin-top: 7em;
+            margin-left: 14em;
+        }
+
+        body {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor">
+        <h2>¿Do you want to be my girlfriend?</h2>
+
+        <input type="button" class="si" onclick="onClickNotButton()" type="button" value="YES">
+        <input type="button" id="no" onclick="onClickYesButton()" class="no" type="button" value="NOT">
+    </div>
+
+    <script>
+        function onClickYesButton() {
+            var min = 0;
+            var max = 348;
+            var max2 = 917;
+
+            var azar = (Math.random() * (max - min) + min);
+            var azar2 = (Math.random() * (max2 - min) + min);
+            var boton = document.getElementById('no');
+            boton.style.marginTop = azar + 'px';
+            boton.style.marginLeft = azar2 + 'px';
+        }
+
+        function onClickNotButton() {
+            alert('😂🤣Ya sabía que quería se mi novia❤❤')
+        }
+    </script>
+</body>
+
+</html>
