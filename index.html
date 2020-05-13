@@ -7,20 +7,22 @@
     <title>Document</title>
     <style>
         .contenedor {
-            border: 5px dotted rgb(255, 0, 0);
-            padding: 1em .4em;
+            border: 5px dotted rgb(255, 255, 255);
+            padding: 0;
             margin: auto;
             max-width: 1000px;
             position: relative;
+            box-shadow: -1px 5px 40px 0px rgba(0, 0, 0, 0.4);
             min-height: 400px;
         }
 
-        .contenedor h2 {
-            display: block;
+        .title {
+            margin: 1em 0em !important;
             text-align: center;
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 3px;
+            text-shadow: 0 0 20px black;
         }
 
         input[type=button] {
@@ -29,11 +31,11 @@
             letter-spacing: 3px;
             background: linear-gradient(to right, #3d5afe, #ab47bc);
             border: none;
-            color: white;
             box-shadow: -1px 2px 4px 0px rgba(0, 0, 0, 0.2);
             font-size: 17px;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             cursor: pointer;
+            color: white;
         }
 
         .si {
@@ -47,35 +49,50 @@
         }
 
         body {
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            align-content: center;
             font-family: 'Dancing Script', cursive;
+            background: linear-gradient(to right, #ab47bc, #3d5afe);
+            color: white;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="contenedor">
-        <h2>¿Do you want to be my girlfriend?</h2>
+    <div style="width: 4000px;">
+        <h2 class="title">¿Do you want to be my girlfriend?</h2>
+        <div class="contenedor">
 
-        <input type="button" class="si" onclick="onClickNotButton()" type="button" value="YES">
-        <input type="button" id="no" onclick="onClickYesButton()" class="no" type="button" value="NOT">
+            <input type="button" class="si" onclick="onClickNotButton()" type="button" value="YES">
+            <input type="button" id="no" onclick="onClickYesButton()" class="no" type="button" value="NOT">
+        </div>
     </div>
 
     <script>
         function onClickYesButton() {
+            var contenedor = document.querySelector('.contenedor');
             var min = 0;
-            var max = 348;
-            var max2 = 917;
+            var maxWidth = contenedor.offsetWidth - 200;
+            var maxHeight = contenedor.offsetHeight - 70;
 
-            var azar = (Math.random() * (max - min) + min);
-            var azar2 = (Math.random() * (max2 - min) + min);
+            var azarHeight = (Math.random() * (maxHeight - min) + min);
+            var azarWidth = (Math.random() * (maxWidth - min) + min);
+
+            console.log("maxHeight", maxHeight);
+            console.log("azarHeight", azarHeight);
+
+
             var boton = document.getElementById('no');
-            boton.style.marginTop = azar + 'px';
-            boton.style.marginLeft = azar2 + 'px';
+            boton.style.marginTop = azarHeight + 'px';
+            boton.style.marginLeft = azarWidth + 'px';
         }
 
         function onClickNotButton() {
-            alert('😂🤣Ya sabía que quería se mi novia❤❤')
+            alert('😂🤣Ya sabía que querías ser mi novia❤❤')
         }
     </script>
 </body>
